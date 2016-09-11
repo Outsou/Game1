@@ -9,6 +9,13 @@ void Game::Start(void)
 		return;
 
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Game1");
+
+	//Create player
+	PlayerPaddle *player1 = new PlayerPaddle();
+	player1->Load("Assets/Images/paddle.png");
+	player1->SetPosition((1024 / 2) - 45, 700);
+	_gameObjectManager.Add("Paddle1", player1);
+
 	_gameState = Game::ShowingSplash;
 
 	while (!IsExiting())
@@ -46,7 +53,8 @@ void Game::GameLoop()
 			sf::Event currentEvent;
 			while (_mainWindow.pollEvent(currentEvent))
 			{
-				_mainWindow.clear(sf::Color::Red);
+				_mainWindow.clear(sf::Color::Black);
+				_gameObjectManager.DrawAll(_mainWindow);
 				_mainWindow.display();
 
 				if (currentEvent.type == sf::Event::Closed)
@@ -87,3 +95,4 @@ void Game::ShowMenu()
 
 Game::GameState Game::_gameState = Uninitialized;
 sf::RenderWindow Game::_mainWindow;
+GameObjectManager Game::_gameObjectManager;
