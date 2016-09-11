@@ -8,4 +8,12 @@ public:
 	PlayerPaddle();
 	~PlayerPaddle();
 
+	void Update(sf::Time elapsed);
+	void Draw(sf::RenderWindow& rw);
+
+	float GetVelocity() const;
+
+private:
+	float _velocity;  // -- left ++ right
+	float _maxVelocity;
 };

@@ -8,13 +8,16 @@ void Game::Start(void)
 	if (_gameState != Uninitialized)
 		return;
 
-	_mainWindow.create(sf::VideoMode(1024, 768, 32), "Game1");
+	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "Game1");
 
 	//Create player
 	PlayerPaddle *player1 = new PlayerPaddle();
-	player1->Load("Assets/Images/paddle.png");
-	player1->SetPosition((1024 / 2) - 45, 700);
+	player1->SetPosition((SCREEN_WIDTH / 2), 700);
 	_gameObjectManager.Add("Paddle1", player1);
+
+	GameBall *ball = new GameBall();
+	ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
+	_gameObjectManager.Add("Ball", ball);
 
 	_gameState = Game::ShowingSplash;
 
@@ -34,8 +37,18 @@ bool Game::IsExiting()
 		return false;
 }
 
+const InputManager& Game::GetInput()
+{
+	return _inputManager;
+}
+
 void Game::GameLoop()
 {
+	sf::Time elapsed = _clock.restart();
+
+	sf::Event currentEvent;
+	_mainWindow.pollEvent(currentEvent);
+
 	switch (_gameState)
 	{
 		case Game::ShowingMenu:
@@ -50,22 +63,23 @@ void Game::GameLoop()
 		}
 		case Game::Playing:
 		{
-			sf::Event currentEvent;
-			while (_mainWindow.pollEvent(currentEvent))
+
+			_mainWindow.clear(sf::Color::Black);
+
+			_gameObjectManager.UpdateAll(elapsed);
+			_gameObjectManager.DrawAll(_mainWindow);
+
+			_mainWindow.display();
+
+			if (currentEvent.type == sf::Event::Closed)
+				_gameState = Game::Exiting;
+
+			if (currentEvent.type == sf::Event::KeyPressed)
 			{
-				_mainWindow.clear(sf::Color::Black);
-				_gameObjectManager.DrawAll(_mainWindow);
-				_mainWindow.display();
-
-				if (currentEvent.type == sf::Event::Closed)
-					_gameState = Game::Exiting;
-
-				if (currentEvent.type == sf::Event::KeyPressed)
-				{
-					if (currentEvent.key.code == sf::Keyboard::Escape)
-						ShowMenu();
-				}
+				if (currentEvent.key.code == sf::Keyboard::Escape)
+					ShowMenu();
 			}
+
 			break;
 		}
 	}
@@ -94,5 +108,9 @@ void Game::ShowMenu()
 }
 
 Game::GameState Game::_gameState = Uninitialized;
+
 sf::RenderWindow Game::_mainWindow;
+sf::Clock Game::_clock;
+
 GameObjectManager Game::_gameObjectManager;
+InputManager Game::_inputManager;

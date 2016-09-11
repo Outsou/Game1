@@ -36,10 +36,33 @@ void VisibleGameObject::Draw(sf::RenderWindow & renderWindow)
 	}
 }
 
+void VisibleGameObject::Update(sf::Time elapsed)
+{
+}
+
 void VisibleGameObject::SetPosition(float x, float y)
 {
 	if (_isLoaded)
 	{
 		_sprite.setPosition(x, y);
 	}
+}
+
+sf::Vector2f VisibleGameObject::GetPosition() const
+{
+	if (_isLoaded)
+	{
+		return _sprite.getPosition();
+	}
+	return sf::Vector2f();
+}
+
+sf::Sprite& VisibleGameObject::GetSprite()
+{
+	return _sprite;
+}
+
+bool VisibleGameObject::IsLoaded() const
+{
+	return _isLoaded;
 }
