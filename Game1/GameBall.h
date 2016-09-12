@@ -8,4 +8,13 @@ class GameBall :
 public:
 	GameBall();
 	virtual ~GameBall();
+	void Update(sf::Time);
+
+private:
+	float _velocity;
+	float _angle;
+	float _elapsedTimeSinceStart;
+
+	float LinearVelocityX(float angle);
+	float LinearVelocityY(float angle);
 };

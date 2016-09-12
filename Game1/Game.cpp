@@ -42,6 +42,11 @@ const InputManager& Game::GetInput()
 	return _inputManager;
 }
 
+const GameObjectManager& Game::GetGameObjectManager()
+{
+	return _gameObjectManager;
+}
+
 void Game::GameLoop()
 {
 	sf::Time elapsed = _clock.restart();

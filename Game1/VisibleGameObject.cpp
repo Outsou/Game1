@@ -66,3 +66,29 @@ bool VisibleGameObject::IsLoaded() const
 {
 	return _isLoaded;
 }
+
+float VisibleGameObject::GetHeight() const
+{
+	return _sprite.getGlobalBounds().height;
+}
+
+float VisibleGameObject::GetWidth() const
+{
+	return _sprite.getGlobalBounds().width;
+}
+
+sf::Rect<float> VisibleGameObject::GetBoundingRect() const
+{
+	/*
+	sf::Vector2f size = _sprite.GetSize();
+	sf::Vector2f position = _sprite.GetPosition();
+
+	return sf::Rect<float>(
+		position.x - size.x / 2,
+		position.y - size.y / 2,
+		position.x + size.x / 2,
+		position.y + size.y / 2
+		);
+		*/
+	return _sprite.getGlobalBounds();
+}
