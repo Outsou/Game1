@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameBall.h"
 #include "Game.h"
+#include "ServiceLocator.h"
 #include <stdlib.h>
 
 
@@ -85,7 +86,8 @@ void GameBall::Update(sf::Time elapsedTime)
 				if (_angle > 360.0f) _angle = _angle - 360.0f;
 			}
 
-			_velocity += 200.0f;
+			ServiceLocator::GetAudio()->PlaySound("Assets/Audio/kaboom.wav");
+			_velocity += 50.0f;
 		}
 
 		//collide with the top of the screen

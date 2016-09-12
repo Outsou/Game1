@@ -3,3 +3,4 @@
 
 
 IInputProvider* ServiceLocator::_inputProvider = NULL;
+IAudioProvider* ServiceLocator::_audioProvider = NULL;

@@ -4,6 +4,7 @@
 #include "SplashScreen.h"
 #include "ServiceLocator.h"
 #include "InputProviderSFML.h"
+#include "AudioProviderSFML.h"
 
 void Game::Start(void)
 {
@@ -15,6 +16,11 @@ void Game::Start(void)
 	//Create services
 	InputProviderSFML inputProvider;
 	ServiceLocator::RegisterServiceLocator(&inputProvider);
+
+	AudioProviderSFML audioProvider;
+	ServiceLocator::RegisterServiceLocator(&audioProvider);
+
+	audioProvider.PlaySong("Assets/Audio/Soundtrack.ogg", true);
 
 	//Create player
 	PlayerPaddle *player1 = new PlayerPaddle();

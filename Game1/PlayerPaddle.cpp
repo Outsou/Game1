@@ -32,13 +32,11 @@ float PlayerPaddle::GetVelocity() const
 
 void PlayerPaddle::Update(sf::Time elapsedTime)
 {
-	//Left
 	if (ServiceLocator::GetInput()->keyDown(LEFT))
 	{
 		_velocity -= 3.0f;
 	}
 
-	//Right
 	if (ServiceLocator::GetInput()->keyDown(RIGHT))
 	{
 		_velocity += 3.0f;

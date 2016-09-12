@@ -20,6 +20,7 @@ bool InputProviderSFML::keyDown(Keys key)
 		return sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
 		break;
 	default:
+		return false;
 		break;
 	}
 }
