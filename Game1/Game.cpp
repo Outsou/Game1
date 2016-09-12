@@ -2,6 +2,8 @@
 #include "Game.h"
 #include "MainMenu.h"
 #include "SplashScreen.h"
+#include "ServiceLocator.h"
+#include "InputProviderSFML.h"
 
 void Game::Start(void)
 {
@@ -9,6 +11,10 @@ void Game::Start(void)
 		return;
 
 	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "Game1");
+
+	//Create services
+	InputProviderSFML inputProvider;
+	ServiceLocator::RegisterServiceLocator(&inputProvider);
 
 	//Create player
 	PlayerPaddle *player1 = new PlayerPaddle();
@@ -35,11 +41,6 @@ bool Game::IsExiting()
 		return true;
 	else
 		return false;
-}
-
-const InputManager& Game::GetInput()
-{
-	return _inputManager;
 }
 
 const GameObjectManager& Game::GetGameObjectManager()
@@ -118,4 +119,3 @@ sf::RenderWindow Game::_mainWindow;
 sf::Clock Game::_clock;
 
 GameObjectManager Game::_gameObjectManager;
-InputManager Game::_inputManager;

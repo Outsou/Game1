@@ -4,7 +4,6 @@
 #include "PlayerPaddle.h"
 #include "GameBall.h"
 #include "GameObjectManager.h"
-#include "InputManager.h"
 
 
 class Game
@@ -13,7 +12,6 @@ class Game
 public:
 	static void Start();
 
-	const static InputManager& GetInput();
 	const static GameObjectManager& GetGameObjectManager();
 
 	const static int SCREEN_WIDTH = 1024;
@@ -37,5 +35,4 @@ private:
 	static sf::Clock _clock;
 
 	static GameObjectManager _gameObjectManager;
-	static InputManager _inputManager;
 };

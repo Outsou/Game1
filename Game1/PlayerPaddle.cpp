@@ -1,6 +1,8 @@
 #include "StdAfx.h"
 #include "PlayerPaddle.h"
 #include "Game.h"
+#include "ServiceLocator.h"
+#include "EnumKeyboard.h"
 
 
 PlayerPaddle::PlayerPaddle() :
@@ -30,18 +32,20 @@ float PlayerPaddle::GetVelocity() const
 
 void PlayerPaddle::Update(sf::Time elapsedTime)
 {
-	if (Game::GetInput().keyDown(sf::Keyboard::Left))
+	//Left
+	if (ServiceLocator::GetInput()->keyDown(LEFT))
 	{
 		_velocity -= 3.0f;
 	}
 
-	if (Game::GetInput().keyDown(sf::Keyboard::Right))
+	//Right
+	if (ServiceLocator::GetInput()->keyDown(RIGHT))
 	{
 		_velocity += 3.0f;
 	}
 
 
-	if (Game::GetInput().keyDown(sf::Keyboard::Down))
+	if (ServiceLocator::GetInput()->keyDown(DOWN))
 	{
 		_velocity = 0.0f;
 	}

@@ -42,10 +42,19 @@
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InputManager.h">
+    <ClInclude Include="GameBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameBall.h">
+    <ClInclude Include="IInputProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputProviderSFML.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceLocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumKeyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,10 +83,13 @@
     <ClCompile Include="VisibleGameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
+    <ClCompile Include="GameBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameBall.cpp">
+    <ClCompile Include="InputProviderSFML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceLocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
