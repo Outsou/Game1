@@ -11,6 +11,7 @@ public:
 	void Update(sf::Time);
 
 private:
+	float _velocityStart;
 	float _velocity;
 	float _angle;
 	float _elapsedTimeSinceStart;

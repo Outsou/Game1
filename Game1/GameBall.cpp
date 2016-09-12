@@ -5,7 +5,8 @@
 
 
 GameBall::GameBall() :
-	_velocity(230.0f),
+	_velocityStart(230.0f),
+	_velocity(_velocityStart),
 	_elapsedTimeSinceStart(0.0f)
 {
 	Load("Assets/Images/ball.png");
@@ -14,7 +15,7 @@ GameBall::GameBall() :
 	GetSprite().setOrigin(15, 15);
 
 	srand(std::clock());
-	_angle = rand() % 361;
+	_angle = static_cast<float>(rand() % 361);
 }
 
 
@@ -37,8 +38,8 @@ void GameBall::Update(sf::Time elapsedTime)
 	float moveByY = LinearVelocityY(_angle) * moveAmount;
 
 
-	//collide with the left side of the screen
-	if (GetPosition().x + moveByX <= 0 + GetWidth() / 2 || GetPosition().x + GetHeight() / 2 + moveByX >= Game::SCREEN_WIDTH)
+	//collide with the left or right side of the screen
+	if (GetPosition().x + moveByX <= 0 + GetWidth() / 2 || GetPosition().x + GetWidth() / 2 + moveByX >= Game::SCREEN_WIDTH)
 	{
 		//Ricochet!
 		_angle = 360.0f - _angle;
@@ -84,23 +85,23 @@ void GameBall::Update(sf::Time elapsedTime)
 				if (_angle > 360.0f) _angle = _angle - 360.0f;
 			}
 
-			_velocity += 5.0f;
+			_velocity += 200.0f;
 		}
 
+		//collide with the top of the screen
 		if (GetPosition().y - GetHeight() / 2 <= 0)
 		{
 			_angle = 180 - _angle;
 			moveByY = -moveByY;
 		}
 
-
-		//if(GetPosition().y - GetSprite().GetSize().y/2 - moveByY <= 0 || GetPosition().y + GetSprite().GetSize().y/2 + moveByY >= Game::SCREEN_HEIGHT)
+		//collide with the bottom of the screen
 		if (GetPosition().y + GetHeight() / 2 + moveByY >= Game::SCREEN_HEIGHT)
 		{
 			// move to middle of the screen for now and randomize angle
 			GetSprite().setPosition(Game::SCREEN_WIDTH / 2, Game::SCREEN_HEIGHT / 2);
-			_angle = rand() % 361;
-			_velocity = 220.0f;
+			_angle = static_cast<float>(rand() % 361);
+			_velocity = _velocityStart;
 			_elapsedTimeSinceStart = 0.0f;
 		}
 
