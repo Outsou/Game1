@@ -4,6 +4,7 @@
 #include "PlayerPaddle.h"
 #include "GameBall.h"
 #include "GameObjectManager.h"
+#include "Wall.h"
 
 
 class Game

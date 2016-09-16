@@ -79,16 +79,11 @@ float VisibleGameObject::GetWidth() const
 
 sf::Rect<float> VisibleGameObject::GetBoundingRect() const
 {
-	/*
-	sf::Vector2f size = _sprite.GetSize();
-	sf::Vector2f position = _sprite.GetPosition();
-
-	return sf::Rect<float>(
-		position.x - size.x / 2,
-		position.y - size.y / 2,
-		position.x + size.x / 2,
-		position.y + size.y / 2
-		);
-		*/
 	return _sprite.getGlobalBounds();
+}
+
+void VisibleGameObject::Rotate(float angle) {
+	if (_isLoaded) {
+		_sprite.rotate(angle);
+	}
 }

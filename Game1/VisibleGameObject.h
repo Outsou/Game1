@@ -11,6 +11,9 @@ public:
 
 	virtual void SetPosition(float x, float y);
 	virtual sf::Vector2f GetPosition() const;
+
+	virtual void Rotate(float angle);
+
 	virtual bool IsLoaded() const;
 
 	virtual float GetWidth() const;
@@ -18,8 +21,7 @@ public:
 
 	virtual sf::Rect<float> GetBoundingRect() const;
 
-protected:
-	sf::Sprite& GetSprite();
+	virtual sf::Sprite& GetSprite();
 
 private:
 	sf::Sprite  _sprite;

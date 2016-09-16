@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "ServiceLocator.h"
 #include "EnumKeyboard.h"
+#include "Collision.h"
 
 
 PlayerPaddle::PlayerPaddle() :
@@ -32,6 +33,13 @@ float PlayerPaddle::GetVelocity() const
 
 void PlayerPaddle::Update(sf::Time elapsedTime)
 {
+	Wall* wall1 = dynamic_cast<Wall*>(Game::GetGameObjectManager().Get("Wall1"));
+
+
+	if (Collision::PixelPerfectTest(GetSprite(), wall1->GetSprite())) {
+		_velocity = 0;
+	}
+
 	if (ServiceLocator::GetInput()->keyDown(LEFT))
 	{
 		_velocity -= 3.0f;

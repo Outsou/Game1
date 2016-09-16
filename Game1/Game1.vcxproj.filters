@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{a006e665-c6ce-48d2-924a-562d36b2abb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums">
+      <UniqueIdentifier>{92724a80-518b-4b6e-b1e6-5b479c3ce011}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VisibleObjects">
+      <UniqueIdentifier>{1e9570d0-db0f-4085-8f2a-b93e97061f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VisibleObjects">
+      <UniqueIdentifier>{258856a7-0db0-400a-bc19-ebbc8923dbc6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -33,19 +45,7 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VisibleGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerPaddle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameBall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IInputProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InputProviderSFML.h">
@@ -54,17 +54,35 @@
     <ClInclude Include="ServiceLocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EnumKeyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IAudioProvider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AudioProviderSFML.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SoundFileCache.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IAudioProvider.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IInputProvider.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EnumKeyboard.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="VisibleGameObject.h">
+      <Filter>Header Files\VisibleObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPaddle.h">
+      <Filter>Header Files\VisibleObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Header Files\VisibleObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBall.h">
+      <Filter>Header Files\VisibleObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,19 +98,10 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerPaddle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VisibleGameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameBall.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InputProviderSFML.cpp">
@@ -106,6 +115,21 @@
     </ClCompile>
     <ClCompile Include="SoundFileCache.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBall.cpp">
+      <Filter>Source Files\VisibleObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="VisibleGameObject.cpp">
+      <Filter>Source Files\VisibleObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPaddle.cpp">
+      <Filter>Source Files\VisibleObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Source Files\VisibleObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

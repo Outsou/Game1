@@ -27,9 +27,18 @@ void Game::Start(void)
 	player1->SetPosition((SCREEN_WIDTH / 2), 700);
 	_gameObjectManager.Add("Paddle1", player1);
 
+	//Create wall
+	Wall *wall = new Wall();
+	wall->SetPosition(SCREEN_WIDTH / 2 - 300, 725);
+	wall->Rotate(30);
+	_gameObjectManager.Add("Wall1", wall);
+
+	//Create ball
+	/*
 	GameBall *ball = new GameBall();
 	ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
 	_gameObjectManager.Add("Ball", ball);
+	*/
 
 	_gameState = Game::ShowingSplash;
 
